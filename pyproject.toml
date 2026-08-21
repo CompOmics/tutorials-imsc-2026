@@ -17,7 +17,7 @@ dependencies = [
     "pandas>=2.3.3",
     "plotly>=6.9.0",
     "psm-utils>=1.5.5",
-    "pynumpress>=0.0.9",
+    "pyarrow>=25",
     "pyteomics>=4.7.5",
     "ristretto>=0.1.2",
     "seaborn>=0.13.2",
@@ -28,7 +28,7 @@ dependencies = [
 ristretto = ["Cython"]
 
 [tool.uv.sources]
-mzpeak = { git = "https://github.com/HUPO-PSI/mzPeak.git", subdirectory = "python" }
+mzpeak = { git = "https://github.com/HUPO-PSI/mzPeak.git", rev = "f68baac793a61592cbbd794a0ef26f2d2b6fac3d", subdirectory = "python" }
 
 [dependency-groups]
 dev = [
