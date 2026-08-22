@@ -59,3 +59,13 @@ The upper-left quadrant (below the old-score threshold, above the new-score thre
 **[4.3a]** *Some PSMs that passed the 1% FDR threshold before rescoring are `lost` afterwards. These are not simply removed at random: look at their `neg_log_rt_error` and `rescoring:spec_pearson_norm` values. What do they have in common? Is losing them a good or a bad outcome for the overall dataset?*
 
 Lost PSMs typically show weak values for RT error, fragmentation similarity, or both, despite having passed on search engine score alone. Their original acceptance was likely a coincidentally good spectral match rather than a well-supported identification. Losing them is a good outcome for the dataset overall: at the same nominal 1% FDR, the accepted set becomes more precise, since matches whose only support was the search engine score, unconfirmed by independent physicochemical evidence, are removed, even though a handful of individual identifications are lost in the process.
+
+## Section 6.1 - Browsing the MS²Rescore QC report
+
+**[6.1a]** *The vertical dashed line shows the 1% FDR threshold. Compare the amount of identified PSMs before and after rescoring. Now note, that 1% is an arbitrary cutoff value. What if instead we would set a 0.1% FDR threshold? Then only one in 1000 PSMs is expected to be wrong. How do the identification numbers before and after rescoring at 0.1% compare to the ones at 1% FDR? What does this imply?*
+
+With data-driven rescoring, we are able to decrease the identification ambiguity to such an extent that we can set the FDR threshold at 0.1% (a 10x improvement in specificity compared to 1%!) at a very minimal cost in sensitivity (a very small loss in identification rate). This is especially important in settings where false positives should be avoided, for instance in immunopeptidomics.
+
+**[6.1b]** *Compare the *absolute median weights by feature* plot with the *individual feature performance* plot. What difference do you see? Why?*
+
+The actual feature weights show to which extent each of the features was used by the rescoring model (Percolator, Mokapot...). When features are equally useful and show some redundancy with each other (i.e., they give very similar values for similar PSMs), the ML algorithm will select the one it uses at random. So even though two features can be very useful, only one might end up being used heavily. If two features are orthogonal (ones without redundancy), they will be much more likely to be used both. The individual feature performance plot shows feature values independent of the actual rescoring model. It just shows how good each feature is at separating good from bad PSMs on its own.
