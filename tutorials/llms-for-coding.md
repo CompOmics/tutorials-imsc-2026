@@ -13,7 +13,7 @@ You will work with:
 - **Supplementary Table 1** ([`SupplementaryTables1-6_NEW.xlsx`](./SupplementaryTables1-6_NEW.xlsx),
   sheet "Supplementary Table 1"): identified peptides with their matching UniProt accessions,
   searched without enzyme specificity constraints; already extracted to
-  [peptides.txt](tutorials/llms-for-coding-data/peptides.txt)
+  [peptides.txt](llms-for-coding-data/peptides.txt)
 - The human proteome FASTA file used for the original search:
   [HUMAN_FASTA_uniprot-proteome3AUP000005640.fasta](https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/09/PXD014479/HUMAN_FASTA_uniprot-proteome3AUP000005640.fasta)
 
